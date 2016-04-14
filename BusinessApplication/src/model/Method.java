@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class Method {
 
     ArrayList<Product> arrayProduct;
+    public String[] arrayConsult = new String[3];
     
     public Method() {//Builder 
     
@@ -25,20 +26,28 @@ public class Method {
         arrayProduct.add(temp);
     }
     
+    public void consultProduct(String idProduct) {
+        
+        if(existProduct(idProduct)) {
+            arrayConsult[0] = arrayProduct.get(indexProduct(idProduct)).getDescription();
+            arrayConsult[1] = arrayProduct.get(indexProduct(idProduct)).getAmount();
+        }
+        
+    }
+    
+    public String[] getArrayConsult() {
+        return this.arrayConsult;
+    }
+    
     public void deleteProduct(String idProduct) {
         arrayProduct.remove(indexProduct(idProduct));
     }
     
-    public boolean modifyProdcut(String arrayInfo[], String idProduct) {
-        boolean exist = false;
-        for(int j=0; j<arrayProduct.size(); j++) {
-            if(arrayProduct.get(j).getIdProduct().equals(idProduct)) {
-                exist = true;
-                arrayProduct.get(j).setDescription(arrayInfo[0]);
-                arrayProduct.get(j).setAmount(arrayInfo[1]);
-            }
+    public void modifyProdcut(String arrayInfo[], String idProduct) {
+        if(existProduct(idProduct)) {
+            arrayProduct.get(indexProduct(idProduct)).setDescription(arrayInfo[0]);
+            arrayProduct.get(indexProduct(idProduct)).setAmount(arrayInfo[1]);
         }
-        return exist;
     }
     
     public boolean existProduct(String idProduct) {

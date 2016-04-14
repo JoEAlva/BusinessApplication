@@ -17,6 +17,19 @@ public class GUI_Product extends javax.swing.JPanel {
      */
     public GUI_Product() {
         initComponents();
+        charge_jC();
+    }
+    
+    public void charge_jT_Report(String report) {
+        this.jT_Information.setText(report);
+    }
+            
+    public void charge_jC() {
+        this.jC_Description.removeAllItems();
+        for(int j=1; j<=10; j++) {
+            this.jC_Description.addItem(""+j);
+        }
+        this.jC_Description.setSelectedIndex(4);
     }
     
     public void addControllerButtons(Controller_FRM_Main controller_FRM_Main) {
@@ -28,6 +41,7 @@ public class GUI_Product extends javax.swing.JPanel {
         this.jB_Modify.addActionListener(controller_FRM_Main);
         this.jB_Delete.addActionListener(controller_FRM_Main);
         this.jB_Update.addActionListener(controller_FRM_Main);
+        this.jB_Report.addActionListener(controller_FRM_Main);
     }
     
     public void clean_jT() {
@@ -40,14 +54,15 @@ public class GUI_Product extends javax.swing.JPanel {
     }
     
     public void setInfo_jT(String arrayInfo[]) {
-        this.jT_Amount.setText(arrayInfo[0]);
-        this.jC_Description.setSelectedIndex(Integer.parseInt(arrayInfo[1]));
+        this.jC_Description.setSelectedIndex(Integer.parseInt(arrayInfo[0]));
+        this.jT_Amount.setText(arrayInfo[1]);        
     }
     
     public String[] getInfo_jT() {
-        String vectorInfo[] = new String[1];
-        vectorInfo[0] = ""+this.jC_Description.getSelectedIndex();
-        vectorInfo[1] = this.jT_Amount.getText();
+        String vectorInfo[] = new String[3];
+        vectorInfo[0] = this.jT_IdProduct.getText();
+        vectorInfo[1] = ""+this.jC_Description.getSelectedIndex();
+        vectorInfo[2] = this.jT_Amount.getText();
         return vectorInfo;
     } 
 
@@ -76,6 +91,7 @@ public class GUI_Product extends javax.swing.JPanel {
         jB_Modify = new javax.swing.JButton();
         jB_Delete = new javax.swing.JButton();
         jB_Update = new javax.swing.JButton();
+        jB_Report = new javax.swing.JButton();
 
         jL_Img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/drawing.png"))); // NOI18N
 
@@ -105,6 +121,8 @@ public class GUI_Product extends javax.swing.JPanel {
 
         jB_Update.setText("UPDATE");
 
+        jB_Report.setText("REPORT");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -112,6 +130,10 @@ public class GUI_Product extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jB_Add, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jB_Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jL_Img, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -126,23 +148,21 @@ public class GUI_Product extends javax.swing.JPanel {
                                     .addComponent(jC_Description, 0, 76, Short.MAX_VALUE)
                                     .addComponent(jT_Amount))
                                 .addGap(18, 18, 18)
-                                .addComponent(jB_Consult)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jB_Consult))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jB_Save, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jB_Close, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jB_Add, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jB_Modify, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jB_Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jB_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                                .addComponent(jB_Modify, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jB_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jB_Report)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jB_Save, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jB_Close, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,12 +188,15 @@ public class GUI_Product extends javax.swing.JPanel {
                             .addComponent(jL_Amount)
                             .addComponent(jT_Amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jB_Add)
+                    .addComponent(jB_Delete))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jB_Modify)
-                    .addComponent(jB_Delete)
-                    .addComponent(jB_Update))
+                    .addComponent(jB_Update)
+                    .addComponent(jB_Report))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -185,6 +208,7 @@ public class GUI_Product extends javax.swing.JPanel {
     private javax.swing.JButton jB_Consult;
     private javax.swing.JButton jB_Delete;
     private javax.swing.JButton jB_Modify;
+    private javax.swing.JButton jB_Report;
     private javax.swing.JButton jB_Save;
     private javax.swing.JButton jB_Update;
     private javax.swing.JComboBox<String> jC_Description;

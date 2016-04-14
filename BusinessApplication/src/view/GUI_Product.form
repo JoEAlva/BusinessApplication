@@ -20,6 +20,11 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+                      <Component id="jB_Add" min="-2" pref="75" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jB_Delete" min="-2" pref="75" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jL_Img" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
@@ -37,28 +42,27 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jB_Consult" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jB_Modify" min="-2" pref="75" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jB_Update" min="-2" pref="75" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jB_Save" min="-2" pref="74" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jB_Close" min="-2" pref="74" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jB_Report" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jB_Save" min="-2" pref="74" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="jB_Close" min="-2" pref="74" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jB_Add" min="-2" pref="75" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jB_Modify" min="-2" pref="75" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jB_Delete" min="-2" pref="75" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jB_Update" min="-2" pref="75" max="-2" attributes="0"/>
-                  </Group>
               </Group>
-              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -92,12 +96,16 @@
                   </Group>
                   <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="106" max="32767" attributes="0"/>
+              <EmptySpace pref="77" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jB_Add" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jB_Modify" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jB_Delete" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jB_Modify" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jB_Update" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jB_Report" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -194,6 +202,11 @@
     <Component class="javax.swing.JButton" name="jB_Update">
       <Properties>
         <Property name="text" type="java.lang.String" value="UPDATE"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jB_Report">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="REPORT"/>
       </Properties>
     </Component>
   </SubComponents>

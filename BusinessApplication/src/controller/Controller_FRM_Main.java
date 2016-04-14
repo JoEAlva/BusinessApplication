@@ -39,6 +39,7 @@ public class Controller_FRM_Main implements ActionListener {
         
         if(e.getActionCommand().equals("CLOSE")) {
             //System.out.println("Funciona CLOSE");
+            System.exit(0);
         }
         
         if(e.getActionCommand().equals("ADD")) {
@@ -63,6 +64,10 @@ public class Controller_FRM_Main implements ActionListener {
             //System.out.println("Funciona CLOSE");
         }
         
+        if(e.getActionCommand().equals("REPORT")) {
+            //System.out.println("Funciona CLOSE");
+            fRM_Main.charge_jT_Report(method.showReport());
+        }
     }
     
 }//End Controller_FRM_Main

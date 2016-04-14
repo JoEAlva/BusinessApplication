@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Method {
 
     ArrayList<Product> arrayProduct;
-    public String[] arrayConsult = new String[3];
+    public String[] arrayConsult = new String[2];
     
     public Method() {//Builder 
     
@@ -29,7 +29,7 @@ public class Method {
     public void consultProduct(String idProduct) {
         
         if(existProduct(idProduct)) {
-            arrayConsult[0] = arrayProduct.get(indexProduct(idProduct)).getDescription();
+            arrayConsult[0] = ""+arrayProduct.get(indexProduct(idProduct)).getDescription();
             arrayConsult[1] = arrayProduct.get(indexProduct(idProduct)).getAmount();
         }
         
@@ -45,8 +45,9 @@ public class Method {
     
     public void modifyProdcut(String arrayInfo[], String idProduct) {
         if(existProduct(idProduct)) {
-            arrayProduct.get(indexProduct(idProduct)).setDescription(arrayInfo[0]);
-            arrayProduct.get(indexProduct(idProduct)).setAmount(arrayInfo[1]);
+            arrayProduct.get(indexProduct(idProduct)).setIdProduct(arrayInfo[0]);
+            arrayProduct.get(indexProduct(idProduct)).setDescription(arrayInfo[1]);
+            arrayProduct.get(indexProduct(idProduct)).setAmount(arrayInfo[2]);
         }
     }
     
@@ -68,6 +69,16 @@ public class Method {
             }
         }
         return index;
+    }
+    
+    public String showReport() {
+        String report = "";
+        for(int j=0; j<arrayProduct.size(); j++) {
+            report+="IDPRODUCTO"+arrayProduct.get(j).getIdProduct()+" "+
+                    "DESCRIPTION"+arrayProduct.get(j).getDescription()+" "+
+                    "AMOUNT"+arrayProduct.get(j).getAmount()+"\n";        
+        }
+        return report;
     }
        
 }//End Method

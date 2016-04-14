@@ -20,6 +20,10 @@ public class FRM_Main extends javax.swing.JFrame {
         this.gUI_Product1.addControllerButtons(controller_FRM_Main);
     }
     
+    public void charge_jT_Report(String report) {
+        this.gUI_Product1.charge_jT_Report(report);
+    }
+    
     public void clean_jT() {
         this.gUI_Product1.clean_jT();
     }
@@ -29,7 +33,7 @@ public class FRM_Main extends javax.swing.JFrame {
     }
     
     public String[] getInfo_jT() {
-        return this.getInfo_jT();
+        return this.gUI_Product1.getInfo_jT();
     }
     
     public String getIdProduct() {
